@@ -8,49 +8,93 @@
 </head>
 <body>
     <div class="main-container">
-        <header>
-            <h1>My 2026 Reading Archive</h1>
-            <p>Select a book cover to view my 3D review & tropes.</p>
-        </header>
+
+        <!-- Profile & Goodreads Header Section -->
+        <header class="page-banner">
+                    <h1>My 2026 Reading Archive</h1>
+                </header>
+
+                <!-- Two-Column Grid Layout -->
+                <div class="dashboard-grid">
+                    
+                    <!-- Left Column: Profile & Link Navigation Hub -->
+                    <aside class="profile-column">
+                        <div class="profile-avatar">
+                            <img src="images/profile.jpg" alt="Anindita's Avatar" onerror="this.src='https://www.goodreads.com/assets/nophoto/user/f_225x225-7064bb4f551751d93e706612d3309a6d.png';">
+                        </div>
+                        
+                        <h2>Anindita</h2>
+                        <p class="profile-bio">Welcome to my 2026 reading sanctuary! I review fantasy, gothic fiction, and romance novels with interactive 3D breakdowns.</p>
+
+                        <div class="link-stack">
+                            <a href="https://www.goodreads.com/user/show/119296496-anindita" target="_blank" rel="noopener noreferrer" class="hub-btn goodreads-btn">
+                                <span class="btn-icon">📚</span> Goodreads Profile
+                            </a>
+                            
+                            <a href="https://www.goodreads.com/readingchallenges?ref=web_ingress" target="_blank" rel="noopener noreferrer" class="hub-btn challenge-btn">
+                                <span class="btn-icon">🎯</span> 2026 Reading Goal
+                            </a>
+
+                            <a href="https://www.goodreads.com/user/year_in_books/2025/119296496" target="_blank" rel="noopener noreferrer" class="hub-btn stats-btn">
+                                <span class="btn-icon">📊</span> 2025 Reading Stats
+                            </a>
+
+                            <a href="https://www.goodreads.com/notes/119296496-anindita?ref=nav_profile_knh" target="_blank" rel="noopener noreferrer" class="hub-btn kindle-btn">
+                                <span class="btn-icon">📖</span> Kindle Notes
+                            </a>
+
+                            <a href="https://www.youtube.com/@DitasVirtualDesk" target="_blank" rel="noopener noreferrer" class="hub-btn youtube-btn">
+                                <span class="btn-icon">▶</span> YouTube Channel
+                            </a>
+                        </div>
+                    </aside>
 
         <!-- 2026 Bookshelf Container -->
-        <section class="shelf-section">
-            <h2>2026 Favorite Reads</h2>
-            
+        <main class="bookshelf-column">
+            <div class="shelf-header">
+                <h2>2026 Favorite Reads</h2>
+                
+            </div>
             <div class="bookshelf">
                 <!-- Book 1 -->
                 <a href="book1.html" class="book-card" title="The Poison Daughter">
+                    <div class="star-badge" title="5 Stars!">★ 5</div>
                     <img src="images/book1.jpg" alt="The Poison Daughter by Sheila Masterson" class="book-cover">
                 </a>
 
                 <!-- Book 2 -->
                 <a href="book2.html" class="book-card" title="Divine Rivals">
+                    <div class="star-badge" title="5 Stars!">★ 5</div>
                     <img src="images/book2.jpg" alt="Divine Rivals by Rebecca Ross" class="book-cover">
                 </a>
 
                 <!-- Book 3 -->
                 <a href="book3.html" class="book-card" title="Ruthless Vows">
+                    <div class="star-badge" title="5 Stars!">★ 5</div>
                     <img src="images/book3.jpg" alt="Ruthless Vows by Rebecca Ross" class="book-cover">
                 </a>
 
                 <!-- Book 4 -->
                 <a href="book4.html" class="book-card" title="One Dark Window">
+                    <div class="star-badge" title="5 Stars!">★ 5</div>
                     <img src="images/book4.jpg" alt="One Dark Window by Rachel Gillig" class="book-cover">
                 </a>
 
                 <!-- Book 5 -->
                 <a href="book5.html" class="book-card" title="My Friends">
+                    <div class="star-badge" title="5 Stars!">★ 5</div>
                     <img src="images/book5.jpg" alt="My Friends by Fredrik Backman" class="book-cover">
                 </a>
 
                 <!-- Book 6 -->
                 <a href="book6.html" class="book-card" title="Bride">
+                    <div class="star-badge" title="5 Stars!">★ 5</div>
                     <img src="images/book6.jpg" alt="Bride by Ali Hazelwood" class="book-cover">
                 </a>
             </div>
             <!-- Wooden Shelf Base -->
             <div class="shelf-wood"></div>
-        </section>
+        </main>
     </div>
 </body>
 </html>

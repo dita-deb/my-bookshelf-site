@@ -1,4 +1,6 @@
-/* Reset & Base Styles */
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -6,80 +8,199 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: #f4efe9;
     color: #2b2b2b;
     padding: 40px 20px;
 }
 
 .main-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-header {
+/* ==========================================
+   Header Banner
+   ========================================== */
+.page-banner {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
-header h1 {
+.page-banner h1 {
     font-size: 2.5rem;
     color: #3e2723;
     margin-bottom: 8px;
 }
 
-/* Shelf Section */
-.shelf-section {
-    margin-top: 30px;
+.page-banner p {
+    color: #5d4037;
+    font-size: 1.05rem;
 }
 
-.shelf-section h2 {
-    font-size: 1.8rem;
+/* ==========================================
+   Two-Column Grid Layout (Invisible Columns)
+   ========================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* 280px Left Column, Bookshelf takes remaining space */
+    gap: 40px;
+    align-items: start;
+}
+
+/* ==========================================
+   Left Column: Profile & Button Stack
+   ========================================== */
+.profile-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-avatar {
+    margin-bottom: 12px;
+}
+
+.profile-avatar img {
+    width: 100px; /* Medium circular avatar */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #8d5b4c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-column h2 {
+    color: #3e2723;
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.profile-bio {
+    color: #616161;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 20px;
+}
+
+/* Vertical Button Stack */
+.link-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.hub-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+.hub-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+/* Button Color Variants */
+.goodreads-btn {
+    background-color: #593b1f;
+    color: #ffffff;
+}
+.goodreads-btn:hover { background-color: #3e2723; }
+
+.challenge-btn {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+.challenge-btn:hover { background-color: #c8e6c9; }
+
+.stats-btn {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #bbdefb;
+}
+.stats-btn:hover { background-color: #bbdefb; }
+
+.kindle-btn {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+}
+.kindle-btn:hover { background-color: #ffe0b2; }
+
+.youtube-btn {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+.youtube-btn:hover { background-color: #ffcdd2; }
+
+
+/* ==========================================
+   Right Column: Bookshelf Container
+   ========================================== */
+.bookshelf-column {
+    width: 100%;
+}
+
+.shelf-header h2 {
+    font-size: 1.6rem;
     color: #5d4037;
     margin-bottom: 20px;
 }
 
-/* Bookshelf Layout */
 .bookshelf {
     display: flex;
-    align-items: flex-end; /* Keeps books sitting flat on top of wooden bar */
-    gap: 18px;
-    padding: 0 20px;
-    perspective: 1000px;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 0 10px;
 }
 
-/* Individual Book Links */
 .book-card {
+    position: relative; /* Essential for absolute positioning of the star badge */
     display: inline-block;
     text-decoration: none;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Book Cover Images */
 .book-cover {
-    width: 110px;
-    height: 165px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 2px 5px 5px 2px;
-    /* Realistic 3D book shadow & spine creasing */
+    border-radius: 2px 4px 4px 2px;
     box-shadow: 
-        inset 4px 0 6px rgba(0, 0, 0, 0.3),
-        5px 8px 15px rgba(0, 0, 0, 0.25);
+        inset 3px 0 5px rgba(0, 0, 0, 0.3),
+        4px 6px 12px rgba(0, 0, 0, 0.25);
     display: block;
 }
 
-/* Hover Effect: Lifting book off shelf */
 .book-card:hover {
-    transform: translateY(-15px) scale(1.05);
+    transform: translateY(-12px) scale(1.04);
 }
 
 .book-card:hover .book-cover {
     box-shadow: 
-        inset 4px 0 6px rgba(0, 0, 0, 0.2),
-        8px 18px 25px rgba(0, 0, 0, 0.35);
+        inset 3px 0 5px rgba(0, 0, 0, 0.2),
+        6px 14px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* Wooden Shelf Bar */
+/* Wooden Shelf Base */
 .shelf-wood {
     height: 18px;
     background: linear-gradient(to bottom, #8d5b4c, #5c3a2e);
@@ -89,9 +210,43 @@ header h1 {
 }
 
 /* ==========================================
+   Glowing Sparkle Badge Overlay (✨ 5)
+   ========================================== */
+.star-badge {
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    background: linear-gradient(135deg, #fff3b0, #ffd700);
+    color: #3d2400;
+    font-weight: 800;
+    font-size: 0.72rem;
+    padding: 3px 7px;
+    border-radius: 12px;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid #ffea79;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: sparkleGlow 2s infinite alternate ease-in-out;
+}
+
+@keyframes sparkleGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 14px rgba(255, 223, 0, 1), 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05);
+    }
+}
+
+/* ==========================================
    Book Review Page & 3D Spinning Styles
    ========================================== */
-   
+
 /* Custom Page Theme: The Poison Daughter */
 body.theme-poison-daughter {
     /* Uses local image or falls back to a dark emerald color */
@@ -421,4 +576,93 @@ body.theme-poison-daughter .hover-prompt {
     font-style: italic;
     text-align: center;
     padding: 20px 0;
+}
+
+/* ==========================================
+   Header & Avatar Styling (Compact & Centered)
+   ========================================== */
+
+.profile-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+    text-align: center; /* Centers title, bio, photo, and links */
+}
+
+.profile-card h1 {
+    font-size: 2rem;
+    color: #3e2723;
+    margin-bottom: 8px;
+}
+
+.profile-bio {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto 18px auto;
+}
+
+/* Smaller Avatar Image below the welcome text */
+.profile-avatar {
+    margin-bottom: 18px;
+}
+
+.profile-avatar img {
+    width: 60px;  /* Reduced from 90px to a smaller, sleek size */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #8d5b4c;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.profile-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   Glowing Sparkle Badge (✨ 5)
+   ========================================== */
+
+.book-card {
+    position: relative;
+}
+
+.star-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #fff3b0, #ffd700);
+    color: #3d2400;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 14px;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border: 1px solid #ffea79;
+    /* Soft glowing aura around badge */
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.2);
+    animation: sparkleGlow 2s infinite alternate ease-in-out;
+}
+
+/* Dynamic pulsing glow animation */
+@keyframes sparkleGlow {
+    0% {
+        box-shadow: 0 0 6px rgba(255, 215, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 16px rgba(255, 223, 0, 1), 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05);
+    }
 }
