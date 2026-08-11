@@ -1,3 +1,4 @@
+/* Reset & Base Styles */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -5,20 +6,97 @@
 }
 
 body {
-    font-family: system-ui, sans-serif;
-    background-color: #f5f0eb;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f4efe9;
     color: #2b2b2b;
     padding: 40px 20px;
 }
 
 .main-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    text-align: center;
 }
 
-h1 {
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #4a2c11;
+    color: #3e2723;
+    margin-bottom: 8px;
+}
+
+/* Shelf Section */
+.shelf-section {
+    margin-top: 30px;
+}
+
+.shelf-section h2 {
+    font-size: 1.8rem;
+    color: #5d4037;
+    margin-bottom: 20px;
+}
+
+/* Bookshelf Layout */
+.bookshelf {
+    display: flex;
+    align-items: flex-end; /* Keeps books flat on top of shelf */
+    gap: 15px;
+    padding: 0 20px;
+}
+
+/* Individual Book Spines */
+.book-spine {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 15px 5px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: inset -3px 0 6px rgba(0,0,0,0.3), 3px 0 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover Effect: Pull book forward off the shelf */
+.book-spine:hover {
+    transform: translateY(-12px);
+    box-shadow: inset -3px 0 6px rgba(0,0,0,0.2), 5px 12px 15px rgba(0,0,0,0.25);
+}
+
+/* Vertical Text Setup */
+.spine-title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.spine-author {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+/* Varying Book Colors & Heights */
+.spine-1 { background-color: #2e5b88; height: 210px; width: 42px; }
+.spine-2 { background-color: #b85b34; height: 230px; width: 48px; }
+.spine-3 { background-color: #3b7a57; height: 195px; width: 38px; }
+.spine-4 { background-color: #6a3882; height: 240px; width: 52px; }
+.spine-5 { background-color: #d4a373; height: 215px; width: 44px; color: #2b2b2b; }
+.spine-6 { background-color: #8c2d19; height: 225px; width: 46px; }
+
+/* Wooden Shelf Bar */
+.shelf-wood {
+    height: 18px;
+    background: linear-gradient(to bottom, #8d5b4c, #5c3a2e);
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
 }
