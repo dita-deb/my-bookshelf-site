@@ -23,7 +23,7 @@ body {
    Header Banner
    ========================================== */
 .page-banner {
-    text-align: center;
+    text-align: right;
     margin-bottom: 40px;
 }
 
@@ -488,20 +488,17 @@ body.theme-poison-daughter .hover-prompt {
     box-shadow: inset 0 0 4px rgba(0,0,0,0.12);
 }
 
-/* Hover Tropes Tags */
+
+/* Outer 3D Container for Tag */
 .trope-tag {
     position: absolute;
-    background: #4a2c11;
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    white-space: nowrap;
+    width: max-content;
+    height: auto;
     opacity: 0;
     pointer-events: none;
+    z-index: 20;
+    transform-style: preserve-3d; /* Allows 3D child rotations */
     transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* Reveal tropes on hover */
@@ -509,17 +506,55 @@ body.theme-poison-daughter .hover-prompt {
     opacity: 1;
 }
 
+/* Base Positions */
 .trope-1 { top: -20px; left: -80px; }
-.scene:hover .trope-1 { transform: translateY(-10px); }
-
 .trope-2 { top: -20px; right: -80px; }
-.scene:hover .trope-2 { transform: translateY(-10px); }
-
 .trope-3 { bottom: -10px; left: -75px; }
-.scene:hover .trope-3 { transform: translateY(10px); }
-
 .trope-4 { bottom: -10px; right: -75px; }
-.scene:hover .trope-4 { transform: translateY(10px); }
+
+/* Float Offsets on Hover */
+.scene:hover .book-3d .trope-1,
+.scene:hover .book-3d .trope-2 { 
+    transform: translateY(-10px) translateZ(25px); 
+}
+
+.scene:hover .book-3d .trope-3,
+.scene:hover .book-3d .trope-4 { 
+    transform: translateY(10px) translateZ(25px); 
+}
+
+/* Individual Tag Faces (Front and Back) */
+.tag-face {
+    display: inline-block;
+    background: #4a2c11;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backface-visibility: hidden; /* Hides face when flipped away */
+    -webkit-backface-visibility: hidden;
+}
+
+/* Front Face */
+.tag-front {
+    position: relative;
+    transform: rotateY(0deg);
+}
+
+/* Back Face (Flipped 180° and overlaid directly behind front face) */
+.tag-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+}
+
 
 /* Review Content & Goodreads Actions */
 .goodreads-actions {
