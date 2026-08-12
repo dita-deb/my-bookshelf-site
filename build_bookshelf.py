@@ -2,7 +2,7 @@ import csv
 import re
 
 # ---------------------------------------------------------------------------
-# METHOD 2: Custom Genre & Trope Map for 2026 Books
+# METHOD 2: Custom Genre & Trope Map for 2026 Books I'll fill this out personally
 # ---------------------------------------------------------------------------
 GENRE_MAP = {
     "Emily Wilde’s Map of the Otherlands": ["#FaerieFantasy", "#CozyFantasy", "#Academics", "#Romance"],
